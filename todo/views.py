@@ -14,8 +14,10 @@ def home(request):
 def add_todo(request):
 	now = timezone.now()
 	content = request.POST["content"]
-	created_obj = Todo.objects.create(added_date=now, text=content)
-	length_of_todos = Todo.objects.all().count()
+	if Todo.objects.filter(text=content):
+		pass
+	else:
+		created_obj = Todo.objects.create(added_date=now, text=content)
 	return HttpResponseRedirect("/")
 
 @csrf_exempt
