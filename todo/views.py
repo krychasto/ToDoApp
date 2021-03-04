@@ -23,7 +23,7 @@ def razmor(request):
 		'is_active': True,
 		'count': 28
 	}]
-	return JsonResponse(data)
+	return JsonResponse(data, safe=False)
 
 def home(request):
 	todo_items = Todo.objects.all().order_by("-added_date")
