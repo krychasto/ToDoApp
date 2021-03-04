@@ -5,12 +5,12 @@
 <div class="row">
 	<div class="col">
 		<h2>Add item</h2>
-		<form action="add_todo" method="post" class="col">
-			<div class="input-field col">
+		<form action="add_todo" method="post" class="list__item-flex">
+			<div class="input-field">
 				<input type="text" name="content" class="validate">
 				<label class="active">type here...</label>
 			</div>
-			<button class="btn waves-effect waves-light" type="submit" >Submit
+			<button class="btn waves-effect waves-light submit__button" type="submit" >Submit
 				<i class="material-icons right">send</i>
 			</button>
 		</form>
@@ -20,13 +20,15 @@
 	<div class="col4">
 		<ul class="collection">
 			{% for todo_item in todo_items %}
-				<li class="collection-item">{{ todo_item.text }}
+			{% if todo_item.text %}
+				<li class="collection-item list__item-flex">{{ todo_item.text }}
 					<div class="right">
 						<form action="delete_todo/{{ todo_item.id }}/" action="post">
 							<button class="btn waves-effect waves-light btn-primary btn-small red" type="submit" >Delete</button>
 						</form>
 					</div>
 				</li>
+			{% endif %}
 			{% endfor %}
     </ul>
 	</div>
