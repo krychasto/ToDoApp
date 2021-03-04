@@ -1,0 +1,10 @@
+.list__item-flex{
+		display: flex;
+    flex: row;
+    justify-content: space-between;
+    align-items: center;
+	}
+	.submit__button{
+		display: block;
+		margin-left: 5vw;
+	}
