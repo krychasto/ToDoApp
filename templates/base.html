@@ -29,7 +29,7 @@
 		margin-left: 5vw;
 	}
 </style>
-<body>
+<body onload="getListElements()">
 	<nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">To Do App</a>
@@ -40,5 +40,9 @@
 	</div>
 	
 </body>
-
+<script>
+	getListElements = () => {
+		alert("Test");
+	}
+</script>
 </html>
