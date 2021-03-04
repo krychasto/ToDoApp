@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from todo.models import Todo
@@ -11,7 +11,19 @@ def job():
 	schedule.every(2).seconds.do(job)
 
 def razmor(request):
-	return HttpResponse("Hello World")
+	data = [{
+		'name': 'Vitor',
+		'location': 'Finland',
+		'is_active': True,
+		'count': 28
+	},
+	{
+		'name': 'Vitor',
+		'location': 'Finland',
+		'is_active': True,
+		'count': 28
+	}]
+	return JsonResponse(data)
 
 def home(request):
 	todo_items = Todo.objects.all().order_by("-added_date")
